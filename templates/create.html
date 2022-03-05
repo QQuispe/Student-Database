@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Create{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="id">ID</label>
+    <input name="id" id="id" value="{{request.form['id']}}" required>
+    <label for="name">Name</label>
+    <input name="name" id="name" value="{{request.form['name']}}" required>
+    <label for="points">Points</label>
+    <input name="points" id="points" value="{{request.form['points']}}"></input>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

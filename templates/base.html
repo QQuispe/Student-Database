@@ -1,0 +1,25 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Student Database</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+    <h1><a href="{{ url_for('home_page') }}">Student Database</a></h1>
+    <ul>
+        <li><a href="{{ url_for('create_student')}}">Create</a></li>
+        <li><a href="{{ url_for('update_student')}}">Update</a></li>
+        <li><a href="{{ url_for('delete_student')}}">Delete</a></li>
+    </ul>
+</nav>
+
+<body>
+    <section class="content">
+        <header>
+          {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+          <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+      </section>
+</body>
+
+</html>
